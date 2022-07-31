@@ -447,7 +447,7 @@
                 
                 <div class="info-break-policy">
                     <i class="far fa-file-word fa-fw"></i>文章字数:&nbsp;&nbsp;
-                    1.8k
+                    3.1k
                 </div>
                 
 
@@ -467,8 +467,8 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="1-搭建SFTP服务器"><a href="#1-搭建SFTP服务器" class="headerlink" title="1 搭建SFTP服务器"></a>1 搭建SFTP服务器</h1><h2 id="1-1-FreeSSHd"><a href="#1-1-FreeSSHd" class="headerlink" title="1.1 FreeSSHd"></a>1.1 FreeSSHd</h2><p>下载FreeSSHd软件，并配置好SFTP服务器的IP地址、监听端口、用户名以及用户密码等信息，启动SFTP服务器。<br><img src="D:\中移云能力中心线上实习\图片\ssh.png"></p>
-<h2 id="1-2-连接SFTP服务器"><a href="#1-2-连接SFTP服务器" class="headerlink" title="1.2 连接SFTP服务器"></a>1.2 连接SFTP服务器</h2><p>创建一个SFTP工具类SFTPUtil.java，里面包含各种工具接口，例如连接&#x2F;关闭SFTP服务器、向服务器上传文件、下载文件等等。</p>
+                <h2 id="1-搭建SFTP服务器"><a href="#1-搭建SFTP服务器" class="headerlink" title="1 搭建SFTP服务器"></a>1 搭建SFTP服务器</h2><h3 id="1-1-FreeSSHd"><a href="#1-1-FreeSSHd" class="headerlink" title="1.1 FreeSSHd"></a>1.1 FreeSSHd</h3><p>下载FreeSSHd软件，并配置好SFTP服务器的IP地址、监听端口、用户名以及用户密码等信息，启动SFTP服务器。</p>
+<h3 id="1-2-连接SFTP服务器"><a href="#1-2-连接SFTP服务器" class="headerlink" title="1.2 连接SFTP服务器"></a>1.2 连接SFTP服务器</h3><p>创建一个SFTP工具类SFTPUtil.java，里面包含各种工具接口，例如连接&#x2F;关闭SFTP服务器、向服务器上传文件、下载文件等等。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">public class SFTPUtil &#123;
 
     private ChannelSftp sftp;
@@ -531,7 +531,7 @@ public void testConnect()&#123;
 <p>运行结果如下。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">SFTP服务器连接成功!
 SFTP服务器连接关闭.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-<h2 id="1-3-上传文件"><a href="#1-3-上传文件" class="headerlink" title="1.3 上传文件"></a>1.3 上传文件</h2><p>在SFTPUtil.java中新建一个上传文件的方法upload()，利用ChannelSftp类中的put方法上传文件。</p>
+<h3 id="1-3-上传文件"><a href="#1-3-上传文件" class="headerlink" title="1.3 上传文件"></a>1.3 上传文件</h3><p>在SFTPUtil.java中新建一个上传文件的方法upload()，利用ChannelSftp类中的put方法上传文件。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">public void upload(String basePath, String directory, String sftpFileName, InputStream input) throws SftpException&#123;
     try &#123;
         sftp.cd(basePath);
@@ -579,7 +579,7 @@ public void testUpload()&#123;
 上传文件至 &#x2F;&#x2F;upload&#x2F;test_sftp.java 成功!
 SFTP服务器连接关闭.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
-<h1 id="2-文件处理"><a href="#2-文件处理" class="headerlink" title="2 文件处理"></a>2 文件处理</h1><h2 id="2-1-文件拆分"><a href="#2-1-文件拆分" class="headerlink" title="2.1 文件拆分"></a>2.1 文件拆分</h2><p>创建一个文件工具类FileUtils，用于对文件做各种处理，如文件拆分、压缩等。</p>
+<h2 id="2-文件处理"><a href="#2-文件处理" class="headerlink" title="2 文件处理"></a>2 文件处理</h2><h3 id="2-1-文件拆分"><a href="#2-1-文件拆分" class="headerlink" title="2.1 文件拆分"></a>2.1 文件拆分</h3><p>创建一个文件工具类FileUtils，用于对文件做各种处理，如文件拆分、压缩等。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">public class FileUtils &#123;
 
     &#x2F;**
@@ -676,8 +676,7 @@ public void testSplitFile() throws IOException &#123;
 第4个文件已生成.
 第5个文件已生成.
 文件拆分结束!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="D:\中移云能力中心线上实习\图片\拆分文件测试.png"></p>
-<h2 id="2-2-压缩文件"><a href="#2-2-压缩文件" class="headerlink" title="2.2 压缩文件"></a>2.2 压缩文件</h2><p>编写一个压缩文件的方法compressFile()，将文件压缩为gzip格式。</p>
+<h3 id="2-2-压缩文件"><a href="#2-2-压缩文件" class="headerlink" title="2.2 压缩文件"></a>2.2 压缩文件</h3><p>编写一个压缩文件的方法compressFile()，将文件压缩为gzip格式。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">public void compressFile(String sourceDir, String targetDir) throws IOException &#123;
     &#x2F;&#x2F; 源文件
     File sourceFile &#x3D; new File(sourceDir);
@@ -713,8 +712,7 @@ public void testCompressFile() throws IOException &#123;
 压缩文件成功!
 压缩文件成功!
 压缩文件成功!<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<p><img src="D:\中移云能力中心线上实习\图片\压缩文件测试.png"></p>
-<h1 id="3-数据稽核"><a href="#3-数据稽核" class="headerlink" title="3 数据稽核"></a>3 数据稽核</h1><h2 id="3-1-构造数据"><a href="#3-1-构造数据" class="headerlink" title="3.1 构造数据"></a>3.1 构造数据</h2><p>首先新建一个数据库，在数据库中新建两张表。</p>
+<h2 id="3-数据稽核"><a href="#3-数据稽核" class="headerlink" title="3 数据稽核"></a>3 数据稽核</h2><h3 id="3-1-构造数据"><a href="#3-1-构造数据" class="headerlink" title="3.1 构造数据"></a>3.1 构造数据</h3><p>首先新建一个数据库，在数据库中新建两张表。</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">CREATE TABLE &#96;console_os_biz_vm_host&#96; (
 &#96;ID&#96; varchar(50) NOT NULL COMMENT &#39;唯一标示，资源编码&#39;,
 &#96;NAME&#96; varchar(100) DEFAULT NULL COMMENT &#39;虚拟机名称&#39;,
@@ -734,9 +732,6 @@ PRIMARY KEY (&#96;ID&#96;)
 <li>底层未删除: 底层虚拟机表中对应记录IS_DELETE字段为0</li>
 </ul>
 <p>在根目录的entity包下创建两张表对应的实体类；在dao包下创建DAO接口以及对应的xml文件；在service包下创建UserService.java，并编写向表中添加数据的接口方法。然后向两张表中添加数据。  </p>
-<div align=center>
-    <img src="D:\中移云能力中心线上实习\图片\目录.png" alt=""" width="250" height="350" />
-</div>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">@Test
 public void insertData()&#123;
     String config &#x3D; &quot;applicationContext.xml&quot;;
@@ -766,13 +761,7 @@ public void insertData()&#123;
         userService.addConsole(new ConsoleOsBizVmHost(id, name, isDelete));
     &#125;
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-添加后的部分数据如下。
-<div align=center>
-    <img src="D:\中移云能力中心线上实习\图片\表open.png" alt=""" width="420" height="470" />
-    <img src="D:\中移云能力中心线上实习\图片\表console.png" alt=""" width="420" height="470" />
-</div>
-
-<h2 id="3-2-数据稽核"><a href="#3-2-数据稽核" class="headerlink" title="3.2 数据稽核"></a>3.2 数据稽核</h2><p>如前所述，目的是稽核出控制台已删除，但是底层未删除的资源。也即，在控制台虚拟机表中IS_DELETE字段为1，但在底层虚拟机表中IS_DELETE字段为0的记录。于是可以写出如下的SQL语句。</p>
+<h3 id="3-2-数据稽核"><a href="#3-2-数据稽核" class="headerlink" title="3.2 数据稽核"></a>3.2 数据稽核</h3><p>如前所述，目的是稽核出控制台已删除，但是底层未删除的资源。也即，在控制台虚拟机表中IS_DELETE字段为1，但在底层虚拟机表中IS_DELETE字段为0的记录。于是可以写出如下的SQL语句。</p>
 <pre class="line-numbers language-sql" data-language="sql"><code class="language-sql">SELECT o.ID, o.NAME, o.IS_DELETE
 FROM console_os_biz_vm_host c, openstack_os_biz_vm_host o
 WHERE c.ID &#x3D; o.ID AND c.IS_DELETE &#x3D; 1 AND o.IS_DELETE &#x3D; 0;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
@@ -790,7 +779,7 @@ public void testQueryInconsistentData()&#123;
     System.out.println(&quot;共稽核出 &quot; + listData.size() + &quot; 条不一致数据.&quot;);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>测试结果如下<br><code>共稽核出 9200 条不一致数据.</code></p>
-<h2 id="3-3-将数据写入到文件"><a href="#3-3-将数据写入到文件" class="headerlink" title="3.3 将数据写入到文件"></a>3.3 将数据写入到文件</h2><p>由于上一步已经将稽核出的数据记录存入了List集合，所以需要把List集合中的数据写入到文件中。在FileUtil类中编写一个方法list2File，能够将List集合中的数据写入到目标文件。</p>
+<h3 id="3-3-将数据写入到文件"><a href="#3-3-将数据写入到文件" class="headerlink" title="3.3 将数据写入到文件"></a>3.3 将数据写入到文件</h3><p>由于上一步已经将稽核出的数据记录存入了List集合，所以需要把List集合中的数据写入到文件中。在FileUtil类中编写一个方法list2File，能够将List集合中的数据写入到目标文件。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">public void list2File(List&lt;?&gt; list, String targetDir)&#123;
     &#x2F;&#x2F; 目标文件
     File targetFile &#x3D; new File(targetDir);
@@ -825,7 +814,7 @@ public void testList2File()&#123;
     fileUtils.list2File(listData, targetDir);
 &#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>测试结果如下。<br><code>数据写入完成!</code></p>
-<h2 id="3-4-文件处理"><a href="#3-4-文件处理" class="headerlink" title="3.4 文件处理"></a>3.4 文件处理</h2><p>得到稽核出的数据文件之后，就可以利用第1、2节的内容，对文件进行拆分、压缩，然后上传到SFTP服务器。还有一个小细节需要注意，文件名中需要显示记录总数、总文件数以及文件序号，所以需要提前计算出稽核出的记录总数以及需要拆分的子文件个数，然后添加到文件名中。<br><img src="D:\中移云能力中心线上实习\图片\拆分文件.png"><br><img src="D:\中移云能力中心线上实习\图片\压缩文件.png"></p>
+<h3 id="3-4-文件处理"><a href="#3-4-文件处理" class="headerlink" title="3.4 文件处理"></a>3.4 文件处理</h3><p>得到稽核出的数据文件之后，就可以利用第1、2节的内容，对文件进行拆分、压缩，然后上传到SFTP服务器。还有一个小细节需要注意，文件名中需要显示记录总数、总文件数以及文件序号，所以需要提前计算出稽核出的记录总数以及需要拆分的子文件个数，然后添加到文件名中。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">SFTP服务器连接成功!
 上传文件至 &#x2F;&#x2F;upload&#x2F;test_inconsistentDataSplit_20220726_9200_5-1.gz 成功!
 上传文件至 &#x2F;&#x2F;upload&#x2F;test_inconsistentDataSplit_20220726_9200_5-2.gz 成功!
@@ -833,7 +822,7 @@ public void testList2File()&#123;
 上传文件至 &#x2F;&#x2F;upload&#x2F;test_inconsistentDataSplit_20220726_9200_5-4.gz 成功!
 上传文件至 &#x2F;&#x2F;upload&#x2F;test_inconsistentDataSplit_20220726_9200_5-5.gz 成功!
 SFTP服务器连接关闭.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-<h1 id="4-总体程序"><a href="#4-总体程序" class="headerlink" title="4 总体程序"></a>4 总体程序</h1><p>项目总体目录如下。<br><img src="D:\中移云能力中心线上实习\图片\总体界面.png"><br>总体测试程序如下。</p>
+<h2 id="4-总体程序"><a href="#4-总体程序" class="headerlink" title="4 总体程序"></a>4 总体程序</h2><p>总体测试程序如下。</p>
 <pre class="line-numbers language-java" data-language="java"><code class="language-java">public class Test04 &#123;
     &#x2F;**
      * 总体测试程序
@@ -1142,6 +1131,273 @@ SFTP服务器连接关闭.<span aria-hidden="true" class="line-numbers-rows"><sp
     
 
     
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/medias/comment_bg.png") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: '7QdbUrnGMQ20oOdlwqEeFjGR-gzGzoHsz',
+        appKey: 'LLXtOGqC65gTqdx8KyCzcrPO',
+        serverURLs: 'https://yexu-code.github.io/',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'mm',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'just go go'
+    });
+</script>
+
+<!--酷Q推送-->
+
 
     
 
@@ -1486,7 +1742,7 @@ SFTP服务器连接关闭.<span aria-hidden="true" class="line-numbers-rows"><sp
             <br>
             
                 &nbsp;<i class="fas fa-chart-area"></i>&nbsp;站点总字数:&nbsp;<span
-                        class="white-color">1.9k</span>
+                        class="white-color">3.2k</span>
             
             
             
